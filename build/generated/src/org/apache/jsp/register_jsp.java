@@ -1,0 +1,277 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("\n");
+      out.write("<head>\n");
+      out.write("\n");
+      out.write("<meta charset=\"UTF-8\">\n");
+      out.write("\n");
+      out.write("<title>Create Account | Smart Banking System</title>\n");
+      out.write("\n");
+      out.write("<link rel=\"stylesheet\" href=\"css/style.css\">\n");
+      out.write("\n");
+      out.write("<link rel=\"stylesheet\"\n");
+      out.write("href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\">\n");
+      out.write("\n");
+      out.write("<script src=\"js/validation.js\"></script>\n");
+      out.write("\n");
+      out.write("</head>\n");
+      out.write("\n");
+      out.write("<body>\n");
+      out.write("\n");
+      out.write("<div class=\"navbar\">\n");
+      out.write("\n");
+      out.write("<div class=\"logo\">\n");
+      out.write("\n");
+      out.write("Smart Banking\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"user\">\n");
+      out.write("\n");
+      out.write("Create Your Account\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"page\">\n");
+      out.write("\n");
+      out.write("<div class=\"card\" style=\"width:650px;\">\n");
+      out.write("\n");
+      out.write("<h2>Create New Account</h2>\n");
+      out.write("\n");
+      out.write("<p>Fill in your details to open a new account.</p>\n");
+      out.write("\n");
+      out.write("<form action=\"RegisterServlet\"\n");
+      out.write("method=\"post\"\n");
+      out.write("onsubmit=\"return validateRegister()\">\n");
+      out.write("\n");
+      out.write("<div class=\"two-column\">\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Full Name</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-user\"></i>\n");
+      out.write("\n");
+      out.write("<input\n");
+      out.write("type=\"text\"\n");
+      out.write("name=\"name\"\n");
+      out.write("placeholder=\"Enter Full Name\"\n");
+      out.write("required>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Email</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-envelope\"></i>\n");
+      out.write("\n");
+      out.write("<input\n");
+      out.write("type=\"email\"\n");
+      out.write("name=\"email\"\n");
+      out.write("placeholder=\"Enter Email\"\n");
+      out.write("required>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Phone</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-phone\"></i>\n");
+      out.write("\n");
+      out.write("<input\n");
+      out.write("type=\"text\"\n");
+      out.write("name=\"phone\"\n");
+      out.write("placeholder=\"Enter Phone Number\"\n");
+      out.write("required>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Account Type</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-building-columns\"></i>\n");
+      out.write("\n");
+      out.write("<select name=\"accountType\">\n");
+      out.write("\n");
+      out.write("<option>Savings</option>\n");
+      out.write("\n");
+      out.write("<option>Current</option>\n");
+      out.write("\n");
+      out.write("</select>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Address</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-location-dot\"></i>\n");
+      out.write("\n");
+      out.write("<input\n");
+      out.write("type=\"text\"\n");
+      out.write("name=\"address\"\n");
+      out.write("placeholder=\"Enter Address\"\n");
+      out.write("required>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Password</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-lock\"></i>\n");
+      out.write("\n");
+      out.write("<input\n");
+      out.write("type=\"password\"\n");
+      out.write("id=\"password\"\n");
+      out.write("name=\"password\"\n");
+      out.write("placeholder=\"Create Password\"\n");
+      out.write("required>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<div class=\"form-group\">\n");
+      out.write("\n");
+      out.write("<label>Initial Deposit</label>\n");
+      out.write("\n");
+      out.write("<div class=\"input-field\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-indian-rupee-sign\"></i>\n");
+      out.write("\n");
+      out.write("<input\n");
+      out.write("type=\"number\"\n");
+      out.write("name=\"balance\"\n");
+      out.write("placeholder=\"Enter Initial Deposit\"\n");
+      out.write("required>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<button class=\"btn\">\n");
+      out.write("\n");
+      out.write("<i class=\"fa-solid fa-user-plus\"></i>\n");
+      out.write("\n");
+      out.write("Create Account\n");
+      out.write("\n");
+      out.write("</button>\n");
+      out.write("\n");
+      out.write("</form>\n");
+      out.write("\n");
+      out.write("<div class=\"link\">\n");
+      out.write("\n");
+      out.write("Already have an account?\n");
+      out.write("\n");
+      out.write("<a href=\"login.jsp\">\n");
+      out.write("\n");
+      out.write("Login\n");
+      out.write("\n");
+      out.write("</a>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<footer>\n");
+      out.write("\n");
+      out.write("© 2026 Smart Banking System\n");
+      out.write("\n");
+      out.write("<br>\n");
+      out.write("\n");
+      out.write("Developed by <b>Shreya Lathi</b>\n");
+      out.write("\n");
+      out.write("</footer>\n");
+      out.write("\n");
+      out.write("</body>\n");
+      out.write("\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

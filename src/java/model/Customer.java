@@ -11,6 +11,8 @@ public class Customer
     private String password;
     private String accountType;
     private double balance;
+    private int failedAttempts;
+    private String accountStatus;
 
     public Customer() 
     {
@@ -104,4 +106,19 @@ public class Customer
     public void setBalance(double balance) {
         this.balance = balance;
     }
+    public int getFailedAttempts() {
+    return failedAttempts;
+}
+
+public void setFailedAttempts(int failedAttempts) {
+    this.failedAttempts = failedAttempts;
+}
+
+public String getAccountStatus() {
+    return accountStatus;
+}
+
+public void setAccountStatus(String accountStatus) {
+    this.accountStatus = accountStatus;
+}
 }

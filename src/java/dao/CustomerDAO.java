@@ -44,39 +44,87 @@ public class CustomerDAO
         return status;
     }
 
-    public Customer login(String email,String password)
+  public Customer getCustomerByEmail(String email)
+{
+    Customer customer = null;
+
+    try
     {
-        Customer customer=null;
-        try
+        con = DBConnection.getConnection();
+        String sql = "SELECT * FROM customers WHERE email=?";
+        ps = con.prepareStatement(sql);
+        ps.setString(1, email);
+        rs = ps.executeQuery();
+
+        if(rs.next())
         {
-           con=DBConnection.getConnection();
-
-            String sql="SELECT * FROM customers WHERE email=? AND password=?";
-            ps=con.prepareStatement(sql);
-            ps.setString(1,email);
-            ps.setString(2,password);
-            rs=ps.executeQuery();
-            if(rs.next())
-            {
-                customer=new Customer();
-
-                customer.setId(rs.getInt("id"));
-                customer.setAccountNo(rs.getString("account_no"));
-                customer.setName(rs.getString("name"));
-                customer.setEmail(rs.getString("email"));
-                customer.setPhone(rs.getString("phone"));
-                customer.setAddress(rs.getString("address"));
-                customer.setPassword(rs.getString("password"));
-                customer.setAccountType(rs.getString("account_type"));
-                customer.setBalance(rs.getDouble("balance"));
-
-            }
-
+            customer = new Customer();
+            customer.setId(rs.getInt("id"));
+            customer.setAccountNo(rs.getString("account_no"));
+            customer.setName(rs.getString("name"));
+            customer.setEmail(rs.getString("email"));
+            customer.setPhone(rs.getString("phone"));
+            customer.setAddress(rs.getString("address"));
+            customer.setPassword(rs.getString("password"));
+            customer.setAccountType(rs.getString("account_type"));
+            customer.setBalance(rs.getDouble("balance"));
+            customer.setFailedAttempts(rs.getInt("failed_attempts"));
+            customer.setAccountStatus(rs.getString("account_status"));
         }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-        return customer;
+
     }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+    return customer;
+}
+  
+  public void resetAttempts(String email)
+{
+    try
+    {
+        con = DBConnection.getConnection();
+        String sql = "UPDATE customers SET failed_attempts=0 WHERE email=?";
+        ps = con.prepareStatement(sql);
+        ps.setString(1,email);
+        ps.executeUpdate();
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+}
+  public void updateAttempts(String email,int attempts)
+{
+    try
+    {
+        con=DBConnection.getConnection();
+        String sql="UPDATE customers SET failed_attempts=? WHERE email=?";
+        ps=con.prepareStatement(sql);
+        ps.setInt(1,attempts);
+        ps.setString(2,email);
+        ps.executeUpdate();
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+}
+  
+  public void lockAccount(String email)
+{
+    try
+    {
+        con=DBConnection.getConnection();
+        String sql="UPDATE customers SET account_status='LOCKED' WHERE email=?";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,email);
+        ps.executeUpdate();
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+}
 }
